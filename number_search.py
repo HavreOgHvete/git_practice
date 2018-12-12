@@ -2,18 +2,22 @@
 import webbrowser
 import subprocess
 #Kjør Dialer
-dialer = subprocess.Popen(["cmd", "/C", "dialer"], stdout=subprocess.PIPE)
-#Sjekk Dialer for eksisterende output
+dialer = subprocess.Popen(["cmd", "/C", "dialer"], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
+dialer.stdin(input(""))
+for line in iter(dialer.stdout.readline, "90507474"): 
+	number = line
 
-number = input(dialer.communicate())
 
 
-#Mangler korrekt subprocess-metode
-print(number)
-#Om output finnes: åpne 1881.no med søk etter output
-webbrowser.open("https://www.1881.no/?query=" + number)
-number = input("Next number ")
-number = str(dialer.communicate(number))
-#For å hindre evig looping under testing: IKKE RØR før 
-#stabil verson
-#er ferdig!
+
+
+
+
+
+
+
+#Skriv ut nummer og åpne 1881
+#print(number)
+#webbrowser.open("https://www.1881.no/?query=" + number)
+
+
